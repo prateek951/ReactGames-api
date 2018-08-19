@@ -5,14 +5,12 @@ const router = express.Router();
 
 const validate = data => {
   const errors = {};
-  const { name, players, publisher, thumbnail, price, duration } = data;
-  if (!name) errors.name = "This field can't be blank";
-  if (!players) errors.players = "This field can't be blank";
-  if (!publisher) errors.publisher = "You must choose publisher";
-  if (!thumbnail) errors.thumbnail = "This field can't be blank";
-  if (price <= 0) errors.price = "Too cheap, don't you think?";
-  if (duration <= 0) errors.duration = "Too short, isn't it?";
-
+  if (!data.name) errors.name = "This field can't be blank";
+  if (!data.players) errors.players = "This field can't be blank";
+  if (!data.publisher) errors.publisher = "You must choose publisher";
+  if (!data.thumbnail) errors.thumbnail = "This field can't be blank";
+  if (data.price <= 0) errors.price = "Too cheap, don't you think?";
+  if (data.duration <= 0) errors.duration = "Too short, isn't it?";
   return errors;
 };
 
